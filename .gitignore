@@ -1,0 +1,49 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+dailymoneyapp/README.md
+dailymoneyapp/CONTRIBUTING.md
+dailymoneyapp/DEPLOYMENT_INDEX.md
+dailymoneyapp/DEPLOY_NOW.md
+dailymoneyapp/DEPLOY_CHECKLIST.md
+dailymoneyapp/VERCEL_DEPLOYMENT.md
+dailymoneyapp/DEPLOYMENT_ARCHITECTURE.md
+dailymoneyapp/WEEK1_COMPLETE_SUMMARY.md
+dailymoneyapp/WEEK2_COMPLETE_SUMMARY.md
+dailymoneyapp/WEEK3_COMPLETE_SUMMARY.md
+dailymoneyapp/INSTALL.md
+dailymoneyapp/SETUP_INSTRUCTIONS.md

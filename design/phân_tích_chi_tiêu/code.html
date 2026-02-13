@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full max-w-[430px] mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Phân tích chi tiêu</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-slate-900 dark:text-white gap-2 text-base font-bold leading-normal p-0">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</div>
+<!-- SegmentedButtons -->
+<div class="flex px-4 py-3">
+<div class="flex h-11 flex-1 items-center justify-center rounded-xl bg-slate-200/50 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 dark:has-[:checked]:text-white text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Hàng tuần</span>
+<input class="invisible w-0" name="period" type="radio" value="weekly"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 dark:has-[:checked]:text-white text-slate-500 dark:text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">Hàng tháng</span>
+<input checked="" class="invisible w-0" name="period" type="radio" value="monthly"/>
+</label>
+</div>
+</div>
+<!-- Featured Chart Section -->
+<div class="flex flex-col gap-4 px-4 py-6">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Tổng chi tiêu tháng này</p>
+<div class="flex items-baseline gap-2">
+<p class="text-slate-900 dark:text-white tracking-tight text-4xl font-extrabold">15.200.000đ</p>
+<p class="text-rose-500 text-sm font-bold bg-rose-50 dark:bg-rose-950/30 px-2 py-0.5 rounded-full">-5%</p>
+</div>
+</div>
+<!-- Custom Donut Chart Visualization -->
+<div class="relative flex items-center justify-center py-8">
+<svg class="size-64 -rotate-90">
+<!-- Background Circle -->
+<circle class="text-slate-200 dark:text-slate-800" cx="128" cy="128" fill="transparent" r="100" stroke="currentColor" stroke-width="24"></circle>
+<!-- Primary Segment (Food) - 33% -->
+<circle cx="128" cy="128" fill="transparent" r="100" stroke="#13ec5b" stroke-dasharray="628.3" stroke-dashoffset="420.9" stroke-linecap="round" stroke-width="24"></circle>
+<!-- Secondary Segment (Housing) - 25% -->
+<circle cx="128" cy="128" fill="transparent" r="100" stroke="#0ea5e9" stroke-dasharray="628.3" stroke-dashoffset="550" stroke-linecap="round" stroke-width="24" transform="rotate(118.8 128 128)"></circle>
+<!-- Tertiary Segment (Transport) - 15% -->
+<circle cx="128" cy="128" fill="transparent" r="100" stroke="#f59e0b" stroke-dasharray="628.3" stroke-dashoffset="590" stroke-linecap="round" stroke-width="24" transform="rotate(208.8 128 128)"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-slate-400 dark:text-slate-500 text-xs font-medium uppercase tracking-widest">Đã dùng</span>
+<span class="text-slate-900 dark:text-white text-2xl font-bold">78%</span>
+<span class="text-slate-400 dark:text-slate-500 text-[10px]">Ngân sách</span>
+</div>
+</div>
+<!-- Mini Bar Chart (Weekly Summary) -->
+<div class="grid min-h-[120px] grid-flow-col gap-4 grid-rows-[1fr_auto] items-end justify-items-center px-6 mt-4">
+<div class="flex flex-col items-center w-full gap-2">
+<div class="bg-primary/20 dark:bg-primary/10 rounded-t-lg w-full flex items-end overflow-hidden" style="height: 60px;">
+<div class="bg-primary w-full" style="height: 50%;"></div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[11px] font-bold">T1</p>
+</div>
+<div class="flex flex-col items-center w-full gap-2">
+<div class="bg-primary/20 dark:bg-primary/10 rounded-t-lg w-full flex items-end overflow-hidden" style="height: 60px;">
+<div class="bg-primary w-full" style="height: 40%;"></div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[11px] font-bold">T2</p>
+</div>
+<div class="flex flex-col items-center w-full gap-2">
+<div class="bg-primary/20 dark:bg-primary/10 rounded-t-lg w-full flex items-end overflow-hidden" style="height: 60px;">
+<div class="bg-primary w-full" style="height: 85%;"></div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[11px] font-bold">T3</p>
+</div>
+<div class="flex flex-col items-center w-full gap-2">
+<div class="bg-primary/20 dark:bg-primary/10 rounded-t-lg w-full flex items-end overflow-hidden" style="height: 60px;">
+<div class="bg-primary w-full" style="height: 100%;"></div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[11px] font-bold">T4</p>
+</div>
+</div>
+</div>
+<!-- SectionHeader -->
+<div class="flex items-center justify-between px-4 pb-3 pt-6">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Chi tiết danh mục</h2>
+<button class="text-primary text-sm font-semibold">Xem tất cả</button>
+</div>
+<!-- ListItems -->
+<div class="flex flex-col px-2">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-2xl px-3 min-h-[72px] py-2 justify-between transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-xl bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Ăn uống</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">33% • 42 giao dịch</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold">5.000.000đ</p>
+<p class="text-rose-500 text-[11px] font-medium">+12%</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-2xl px-3 min-h-[72px] py-2 justify-between transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-sky-500 flex items-center justify-center rounded-xl bg-sky-500/10 shrink-0 size-12">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Nhà ở</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">25% • 5 giao dịch</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold">3.800.000đ</p>
+<p class="text-primary text-[11px] font-medium">Ổn định</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-2xl px-3 min-h-[72px] py-2 justify-between transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-amber-500 flex items-center justify-center rounded-xl bg-amber-500/10 shrink-0 size-12">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Di chuyển</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">15% • 18 giao dịch</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold">2.280.000đ</p>
+<p class="text-primary text-[11px] font-medium">-4%</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center gap-4 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-2xl px-3 min-h-[72px] py-2 justify-between transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-purple-500 flex items-center justify-center rounded-xl bg-purple-500/10 shrink-0 size-12">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Giải trí</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">10% • 8 giao dịch</p>
+</div>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-slate-900 dark:text-white text-base font-bold">1.520.000đ</p>
+<p class="text-rose-500 text-[11px] font-medium">+20%</p>
+</div>
+</div>
+</div>
+<div class="h-24 bg-transparent"></div>
+<!-- Bottom Navigation (iOS style) -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-white/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 flex justify-around items-center py-3 px-6 pb-8">
+<div class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Trang chủ</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pie_chart</span>
+<span class="text-[10px] font-bold">Phân tích</span>
+</div>
+<div class="flex flex-col items-center -mt-8">
+<div class="bg-primary text-background-dark p-3 rounded-full shadow-lg shadow-primary/40 flex items-center justify-center">
+<span class="material-symbols-outlined !text-3xl">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Ví của tôi</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Cài đặt</span>
+</div>
+</div>
+</div>
+</body></html>

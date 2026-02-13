@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d131c] dark:text-white min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="Avatar portrait of Van A smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKWEht-QB8Amcr2NoGZhoukBfiHycWVvsRzGP4GiKcMk1u5RgQ0d8K5m1pBOYTnh863ceUPIw6JWf1kb2uuAcZgaccLL_MnKi4bTA0jigYJJaq72L_DiqShZ3ajRM7Bl5hdXF5eQKp6xwyx13_qX3G6ib26SOpddVZ7rMQ4yEM-gv8LEC6NlybW05_yutNi-YeF39L6hP0LsfI85etmJ2tMixgvCkme-l3yasssYmU_0zqJZX6pX8yYdxbqFbRI0KUrHbV8vWWXIYF");'></div>
+</div>
+<div class="flex-1 px-3">
+<p class="text-[#49699c] dark:text-gray-400 text-xs font-medium">Chào buổi sáng,</p>
+<h2 class="text-[#0d131c] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Văn A</h2>
+</div>
+<div class="flex items-center justify-end">
+<button class="relative flex size-12 cursor-pointer items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
+<span class="material-symbols-outlined text-[#0d131c] dark:text-white">notifications</span>
+<span class="absolute top-3 right-3 block h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white dark:ring-gray-800"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto">
+<!-- Main Balance Card -->
+<div class="p-4">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] p-6 shadow-xl text-white">
+<div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-white/80 text-sm font-medium mb-1">Tổng số dư khả dụng</p>
+<h2 class="text-3xl font-extrabold tracking-tight">15.234.000đ</h2>
+</div>
+<span class="material-symbols-outlined text-white/80">account_balance_wallet</span>
+</div>
+<div class="flex items-center gap-4 bg-black/10 backdrop-blur-sm p-3 rounded-lg">
+<div class="flex-1">
+<p class="text-white/70 text-[10px] uppercase font-bold tracking-wider">Chi tiêu tháng này</p>
+<p class="text-white text-lg font-bold">8.766.000đ</p>
+</div>
+<div class="h-8 w-px bg-white/20"></div>
+<div class="flex-1">
+<p class="text-white/70 text-[10px] uppercase font-bold tracking-wider">Ngân sách còn</p>
+<p class="text-white text-lg font-bold">45%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 pt-4 pb-2">
+<h3 class="text-[#0d131c] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">6 Hũ Tài Chính</h3>
+<button class="text-primary text-sm font-semibold">Xem tất cả</button>
+</div>
+<!-- ImageGrid (Modified to Jars Grid) -->
+<div class="grid grid-cols-2 gap-4 p-4">
+<!-- NEC -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="size-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-600 dark:text-orange-400 text-xl">shopping_cart</span>
+</div>
+<span class="text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 px-1.5 py-0.5 rounded">55%</span>
+</div>
+<p class="text-[#0d131c] dark:text-white text-sm font-bold leading-tight mb-1">Thiết yếu (NEC)</p>
+<p class="text-[#49699c] dark:text-gray-400 text-base font-bold mb-3">6.000.000đ</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-orange-500 h-full w-[55%]"></div>
+</div>
+</div>
+<!-- FFA -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="size-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-xl">payments</span>
+</div>
+<span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-1.5 py-0.5 rounded">10%</span>
+</div>
+<p class="text-[#0d131c] dark:text-white text-sm font-bold leading-tight mb-1">Tự do tài chính (FFA)</p>
+<p class="text-[#49699c] dark:text-gray-400 text-base font-bold mb-3">3.000.000đ</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[70%]"></div>
+</div>
+</div>
+<!-- EDU -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="size-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-xl">school</span>
+</div>
+<span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-1.5 py-0.5 rounded">10%</span>
+</div>
+<p class="text-[#0d131c] dark:text-white text-sm font-bold leading-tight mb-1">Giáo dục (EDU)</p>
+<p class="text-[#49699c] dark:text-gray-400 text-base font-bold mb-3">1.500.000đ</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full w-[40%]"></div>
+</div>
+</div>
+<!-- LTSS -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="size-8 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-600 dark:text-purple-400 text-xl">savings</span>
+</div>
+<span class="text-[10px] font-bold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-1.5 py-0.5 rounded">10%</span>
+</div>
+<p class="text-[#0d131c] dark:text-white text-sm font-bold leading-tight mb-1">Tiết kiệm (LTSS)</p>
+<p class="text-[#49699c] dark:text-gray-400 text-base font-bold mb-3">2.000.000đ</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-purple-500 h-full w-[25%]"></div>
+</div>
+</div>
+<!-- PLAY -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="size-8 rounded-lg bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-pink-600 dark:text-pink-400 text-xl">celebration</span>
+</div>
+<span class="text-[10px] font-bold text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/20 px-1.5 py-0.5 rounded">10%</span>
+</div>
+<p class="text-[#0d131c] dark:text-white text-sm font-bold leading-tight mb-1">Hưởng thụ (PLAY)</p>
+<p class="text-[#49699c] dark:text-gray-400 text-base font-bold mb-3">1.234.000đ</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-pink-500 h-full w-[90%]"></div>
+</div>
+</div>
+<!-- GIVE -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-2 mb-3">
+<div class="size-8 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-red-600 dark:text-red-400 text-xl">favorite</span>
+</div>
+<span class="text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 px-1.5 py-0.5 rounded">5%</span>
+</div>
+<p class="text-[#0d131c] dark:text-white text-sm font-bold leading-tight mb-1">Cho đi (GIVE)</p>
+<p class="text-[#49699c] dark:text-gray-400 text-base font-bold mb-3">1.500.000đ</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-red-500 h-full w-[15%]"></div>
+</div>
+</div>
+</div>
+<!-- Recent Transactions -->
+<div class="px-4 pb-4">
+<h3 class="text-[#0d131c] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] mb-4">Giao dịch gần đây</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-600 text-xl">shopping_cart</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#0d131c] dark:text-white">Siêu thị Winmart</p>
+<p class="text-xs text-[#49699c] dark:text-gray-400">Thiết yếu • Hôm nay</p>
+</div>
+</div>
+<p class="text-red-500 font-bold">-250.000đ</p>
+</div>
+<div class="flex items-center justify-between bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-xl">add_card</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#0d131c] dark:text-white">Lương tháng 10</p>
+<p class="text-xs text-[#49699c] dark:text-gray-400">Thu nhập • 05/10/2023</p>
+</div>
+</div>
+<p class="text-emerald-500 font-bold">+20.000.000đ</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for AI Voice -->
+<div class="fixed bottom-24 right-1/2 translate-x-1/2 z-50">
+<button class="flex items-center justify-center rounded-full size-16 bg-primary text-white shadow-lg shadow-primary/40 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">mic</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-t border-gray-100 dark:border-gray-800 px-4 pt-2 pb-8 z-40">
+<div class="max-w-md mx-auto flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined font-variation-fill">home</span>
+<span class="text-[10px] font-bold">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#49699c] dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Thống kê</span>
+</a>
+<div class="w-16"></div> <!-- Spacer for FAB -->
+<a class="flex flex-col items-center gap-1 text-[#49699c] dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-[10px] font-medium">Các hũ</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#49699c] dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Cá nhân</span>
+</a>
+</div>
+</nav>
+</body></html>

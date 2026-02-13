@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101722",
+                        "jar-essential": "#3c83f6",
+                        "jar-edu": "#10b981",
+                        "jar-save": "#f59e0b",
+                        "jar-play": "#8b5cf6",
+                        "jar-invest": "#ec4899",
+                        "jar-give": "#64748b"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .donut-segment {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d131c] dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden max-w-[480px] mx-auto shadow-2xl">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50">
+<div class="text-[#0d131c] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#0d131c] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Thống Kê Chi Tiêu</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-[#0d131c] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- SegmentedButtons -->
+<div class="flex px-4 py-3">
+<div class="flex h-11 flex-1 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-gray-500 dark:text-gray-400 text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Tháng</span>
+<input checked="" class="invisible w-0" name="timeframe" type="radio" value="Tháng"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-gray-500 dark:text-gray-400 text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Quý</span>
+<input class="invisible w-0" name="timeframe" type="radio" value="Quý"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-primary text-gray-500 dark:text-gray-400 text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Năm</span>
+<input class="invisible w-0" name="timeframe" type="radio" value="Năm"/>
+</label>
+</div>
+</div>
+<!-- Summary Card -->
+<div class="p-4">
+<div class="flex flex-col items-stretch justify-start rounded-2xl shadow-lg bg-white dark:bg-gray-800 p-6 border border-gray-100 dark:border-gray-700">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Tổng chi tiêu tháng này</p>
+<p class="text-[#0d131c] dark:text-white text-3xl font-extrabold leading-tight tracking-tight mt-1">8.766.000đ</p>
+</div>
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">file_download</span>
+</button>
+</div>
+<div class="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg w-fit">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 text-sm">trending_down</span>
+<p class="text-green-600 dark:text-green-400 text-sm font-bold">-5% (Giảm 450k) so với tháng trước</p>
+</div>
+</div>
+</div>
+<!-- Distribution Section -->
+<div class="px-4 pt-4">
+<h3 class="text-[#0d131c] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4">Phân bổ 6 hũ tài chính</h3>
+<div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md">
+<!-- Simple Donut Chart Representation -->
+<div class="flex justify-center items-center py-6 relative">
+<svg class="w-48 h-48" viewbox="0 0 36 36">
+<circle class="text-gray-100 dark:text-gray-700" cx="18" cy="18" fill="transparent" r="16" stroke="currentColor" stroke-width="4"></circle>
+<!-- Essential (55%) -->
+<circle class="text-jar-essential" cx="18" cy="18" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="55 100" stroke-dashoffset="0" stroke-linecap="round" stroke-width="4" style="transform: rotate(-90deg); transform-origin: center;"></circle>
+<!-- Savings (10%) -->
+<circle class="text-jar-save" cx="18" cy="18" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="10 100" stroke-dashoffset="-55" stroke-linecap="round" stroke-width="4" style="transform: rotate(-90deg); transform-origin: center;"></circle>
+<!-- Education (10%) -->
+<circle class="text-jar-edu" cx="18" cy="18" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="10 100" stroke-dashoffset="-65" stroke-linecap="round" stroke-width="4" style="transform: rotate(-90deg); transform-origin: center;"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-bold">100%</span>
+<span class="text-xs text-gray-500 uppercase tracking-widest">Đã phân bổ</span>
+</div>
+</div>
+<!-- Legend Grid -->
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-jar-essential"></div>
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Thiết yếu (55%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-jar-edu"></div>
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Giáo dục (10%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-jar-save"></div>
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Tiết kiệm (10%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-jar-play"></div>
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Hưởng thụ (10%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-jar-invest"></div>
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Đầu tư (10%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-jar-give"></div>
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Từ thiện (5%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Budget vs Actual Bar Chart -->
+<div class="px-4 py-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-[#0d131c] dark:text-white text-lg font-bold">Ngân sách vs Thực tế</h3>
+<div class="flex gap-3 text-[10px] font-bold uppercase tracking-wider">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+<span>Dự kiến</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span>Thực tế</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md space-y-6">
+<!-- Bar Item -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span>Thiết yếu</span>
+<span>4.800k / 5.000k</span>
+</div>
+<div class="relative h-4 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-jar-essential opacity-40 rounded-full" style="width: 95%"></div>
+<div class="absolute top-0 left-0 h-full bg-jar-essential rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Bar Item -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span>Hưởng thụ</span>
+<span>1.200k / 900k</span>
+</div>
+<div class="relative h-4 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-jar-play opacity-40 rounded-full" style="width: 50%"></div>
+<div class="absolute top-0 left-0 h-full bg-red-500 rounded-full" style="width: 75%"></div>
+</div>
+<p class="text-[10px] text-red-500 font-bold text-right">Vượt hạn mức 300k!</p>
+</div>
+<!-- Bar Item -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span>Giáo dục</span>
+<span>500k / 900k</span>
+</div>
+<div class="relative h-4 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-jar-edu opacity-40 rounded-full" style="width: 60%"></div>
+<div class="absolute top-0 left-0 h-full bg-jar-edu rounded-full" style="width: 40%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Recommendation Footer -->
+<div class="px-4 pb-12">
+<div class="bg-primary/10 dark:bg-primary/20 p-4 rounded-2xl border border-primary/20">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+<span class="font-bold text-sm">Gợi ý từ AI</span>
+</div>
+<p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Bạn đang chi tiêu vượt mức ở hũ <b>Hưởng thụ</b>. Hãy cân nhắc cắt giảm các bữa ăn ngoài trong tuần tới để cân bằng lại ngân sách.
+                </p>
+</div>
+</div>
+<!-- Floating Voice Button (UI characteristic of the app description) -->
+<div class="fixed bottom-6 right-6 flex items-center justify-center">
+<button class="size-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">mic</span>
+</button>
+</div>
+<div class="h-10"></div>
+</div>
+</body></html>

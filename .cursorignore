@@ -1,0 +1,8 @@
+# Ignore Next.js build and cache directories
+.next/
+# Ignore environment variables file
+.env
+# Ignore public assets that don't need AI context
+public/assets/*
+# Ignore specific test files
+__tests__/*.ignore.ts
