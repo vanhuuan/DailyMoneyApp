@@ -1,0 +1,37 @@
+{
+  "name": "DailyMoneyApp - Quản lý tài chính thông minh",
+  "short_name": "DailyMoney",
+  "description": "Ứng dụng quản lý tài chính với AI và phương pháp 6 Hũ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "portrait",
+  "icons": [],
+  "shortcuts": [
+    {
+      "name": "Thêm chi tiêu",
+      "short_name": "Chi tiêu",
+      "description": "Ghi lại chi tiêu nhanh chóng",
+      "url": "/dashboard/expense?shortcut=true"
+    },
+    {
+      "name": "Thêm thu nhập",
+      "short_name": "Thu nhập",
+      "description": "Ghi lại thu nhập và phân bổ tự động",
+      "url": "/dashboard/income?shortcut=true"
+    },
+    {
+      "name": "Xem thống kê",
+      "short_name": "Thống kê",
+      "description": "Xem tổng quan tài chính",
+      "url": "/dashboard/statistics?shortcut=true"
+    },
+    {
+      "name": "Quản lý 6 hũ",
+      "short_name": "6 Hũ",
+      "description": "Xem và quản lý 6 hũ tiết kiệm",
+      "url": "/dashboard/jars?shortcut=true"
+    }
+  ]
+}

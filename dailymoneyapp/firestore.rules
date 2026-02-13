@@ -1,0 +1,147 @@
+rules_version = '2';
+
+/**
+ * Firestore Security Rules - QuanLyChiTieu App
+ * 
+ * Bảo mật data theo user ownership:
+ * - Mỗi user chỉ có thể đọc/ghi data của chính mình
+ * - Subcollections (jars, transactions, incomes, etc.) thuộc về user
+ */
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ========================================
+    // HELPER FUNCTIONS
+    // ========================================
+    
+    /**
+     * Check if user is authenticated
+     */
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    /**
+     * Check if user owns the resource
+     */
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    /**
+     * Validate user profile data
+     */
+    function isValidUserProfile() {
+      let profile = request.resource.data;
+      return profile.keys().hasAll(['email', 'displayName', 'createdAt'])
+        && profile.email is string
+        && profile.displayName is string;
+    }
+    
+    /**
+     * Validate jar data
+     */
+    function isValidJar() {
+      let jar = request.resource.data;
+      return jar.keys().hasAll(['code', 'name', 'balance', 'percentage'])
+        && jar.code is string
+        && jar.name is string
+        && jar.balance is number
+        && jar.balance >= 0
+        && jar.percentage is number
+        && jar.percentage >= 0
+        && jar.percentage <= 100;
+    }
+    
+    /**
+     * Validate transaction data
+     */
+    function isValidTransaction() {
+      let tx = request.resource.data;
+      return tx.keys().hasAll(['amount', 'type', 'jarCode', 'createdAt'])
+        && tx.amount is number
+        && tx.amount > 0
+        && tx.type in ['expense', 'income', 'transfer']
+        && tx.jarCode is string;
+    }
+    
+    // ========================================
+    // USER PROFILE RULES
+    // ========================================
+    
+    match /users/{userId} {
+      // Users can only read/write their own profile
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUserProfile();
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
+      
+      // ========================================
+      // SUBCOLLECTIONS (owned by user)
+      // ========================================
+      
+      // Jars subcollection
+      match /jars/{jarId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidJar();
+        allow update: if isOwner(userId) && isValidJar();
+        allow delete: if isOwner(userId);
+      }
+      
+      // Transactions subcollection
+      match /transactions/{transactionId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidTransaction();
+        allow update: if isOwner(userId);
+        allow delete: if isOwner(userId);
+      }
+      
+      // Incomes subcollection
+      match /incomes/{incomeId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId);
+        allow update: if isOwner(userId);
+        allow delete: if isOwner(userId);
+      }
+      
+      // Goals subcollection
+      match /goals/{goalId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId);
+        allow update: if isOwner(userId);
+        allow delete: if isOwner(userId);
+      }
+      
+      // Categories subcollection
+      match /categories/{categoryId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId);
+        allow update: if isOwner(userId);
+        allow delete: if isOwner(userId);
+      }
+      
+      // Siri Shortcuts subcollection
+      match /siri_shortcuts/{shortcutId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId);
+        allow update: if isOwner(userId);
+        allow delete: if isOwner(userId);
+      }
+      
+      // Catch-all for any other subcollections
+      match /{collectionName}/{documentId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+    
+    // ========================================
+    // DENY ALL OTHER ACCESS
+    // ========================================
+    
+    // Default: Deny all access to other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
